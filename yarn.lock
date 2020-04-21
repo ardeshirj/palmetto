@@ -1167,12 +1167,34 @@
   dependencies:
     tslib "^1.9.3"
 
-"@material/dom@^1.1.0":
+"@material/button@^1.1.0":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@material/button/-/button-1.1.1.tgz#35af0d295f6ce6e3df9d4978485b5294d794f682"
+  integrity sha512-03aEyzZBIeqpgZkqLjro/enz8ORUnfQslBUdAgkPqdjh1X0oIEugr3UaFyC5QlSBTU3j3GIsnKIxWaggkRenpQ==
+  dependencies:
+    "@material/elevation" "^1.1.0"
+    "@material/feature-targeting" "^0.44.1"
+    "@material/ripple" "^1.1.0"
+    "@material/rtl" "^0.42.0"
+    "@material/shape" "^1.1.1"
+    "@material/theme" "^1.1.0"
+    "@material/typography" "^1.0.0"
+
+"@material/dom@^1.0.0", "@material/dom@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@material/dom/-/dom-1.1.0.tgz#3bd3d1a3415b4181118fecb182d93beda56a6f8c"
   integrity sha512-+HWW38ZaM2UBPu4+7QCusLDSf4tFT31rsEXHkTkxYSg/QpDivfPx6YDz4OmYtafmhPR1d1YjqB3MYysUHdodyw==
   dependencies:
     tslib "^1.9.3"
+
+"@material/elevation@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@material/elevation/-/elevation-1.1.0.tgz#def23c360ae067b43c1632a331b9883b9f679cc5"
+  integrity sha512-m4eATJvDhWK1BT+yA1iHz5mhAk8cV9olC4mjVzm4PTAqhDH2yya4WzjN1HPVHE/a65ObyZ7V4qopxu9MRocm3A==
+  dependencies:
+    "@material/animation" "^1.0.0"
+    "@material/feature-targeting" "^0.44.1"
+    "@material/theme" "^1.1.0"
 
 "@material/feature-targeting@^0.44.1":
   version "0.44.1"
@@ -1249,6 +1271,15 @@
     "@material/theme" "^1.1.0"
     tslib "^1.9.3"
 
+"@material/react-button@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@material/react-button/-/react-button-0.15.0.tgz#1585c86547cd83ebe0642fa8f45b83da3075d259"
+  integrity sha512-OnnQx1XEomYlmp9TQIRYy+UAzJG1NPlmBfX/oP6hkxB4bWcrR2MLbqR4J1RMLDjl7a6qfdU2HskWPYp0wS+4Pw==
+  dependencies:
+    "@material/button" "^1.1.0"
+    "@material/react-ripple" "^0.15.0"
+    classnames "^2.2.6"
+
 "@material/react-floating-label@^0.15.0":
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/@material/react-floating-label/-/react-floating-label-0.15.0.tgz#08638c423e669018e5e6afd7862aa3318b20e184"
@@ -1265,6 +1296,14 @@
     "@material/line-ripple" "^1.0.0"
     classnames "^2.2.6"
 
+"@material/react-material-icon@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@material/react-material-icon/-/react-material-icon-0.15.0.tgz#7720e67626892dd3d6e2de96a90e2d92e8049293"
+  integrity sha512-KDiMtMEtBZvqlma7wTS0ObY9BSFVtbCVkZiTnde/CxsYEQG9N6QwHClpbS4u/H8mWyXLdlSAQhK7rYSq1XGV0w==
+  dependencies:
+    "@material/react-ripple" "^0.15.0"
+    classnames "^2.2.6"
+
 "@material/react-notched-outline@^0.15.0":
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/@material/react-notched-outline/-/react-notched-outline-0.15.0.tgz#f326809d7c7fdcd4d2b4b5656964c49f8832d66a"
@@ -1272,6 +1311,16 @@
   dependencies:
     "@material/notched-outline" "^1.1.1"
     classnames "^2.2.6"
+
+"@material/react-ripple@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@material/react-ripple/-/react-ripple-0.15.0.tgz#70adfec74942b4b5dab130e71cc5d0734f2257bb"
+  integrity sha512-8YPEpiQNOaq3QtMc1DBxVVqOg/XnoWDj/EJ8eW0xmB4HvXElztKNTZoIpAAuQMZ8jbyZkRJRiFDa33u+wLFDCg==
+  dependencies:
+    "@material/dom" "^1.0.0"
+    "@material/ripple" "^1.0.0"
+    classnames "^2.2.6"
+    utility-types "^3.2.1"
 
 "@material/react-text-field@^0.15.0":
   version "0.15.0"
@@ -1283,6 +1332,18 @@
     "@material/react-notched-outline" "^0.15.0"
     "@material/textfield" "^2.3.1"
     classnames "^2.2.6"
+
+"@material/ripple@^1.0.0", "@material/ripple@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-1.1.0.tgz#236016fb30c8366faf143297df2c38166d84ffbc"
+  integrity sha512-mkfDBZAmxjpRG7V9TrfOmLxt1g/wvGHCXtYPgvH7W8ozjf53edqxLOFENEdvHbie27y9nyixzXn0gzU0HnxSeA==
+  dependencies:
+    "@material/animation" "^1.0.0"
+    "@material/base" "^1.0.0"
+    "@material/dom" "^1.1.0"
+    "@material/feature-targeting" "^0.44.1"
+    "@material/theme" "^1.1.0"
+    tslib "^1.9.3"
 
 "@material/ripple@^2.3.0":
   version "2.3.0"
@@ -10465,6 +10526,11 @@ utila@^0.4.0, utila@~0.4:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/utila/-/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
   integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
+
+utility-types@^3.2.1:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.10.0.tgz#ea4148f9a741015f05ed74fd615e1d20e6bed82b"
+  integrity sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==
 
 utils-merge@1.0.1:
   version "1.0.1"
