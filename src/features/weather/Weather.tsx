@@ -1,9 +1,15 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 import TextField, { Input } from '@material/react-text-field';
 import Button from '@material/react-button';
 import styles from './weather.module.css';
 
-export function Weather() {
+interface Props {
+  loadForecast: (location: string) => void
+}
+
+export function Weather({
+  loadForecast
+}: Props) {
   const [location, setLocation] = React.useState("");
 
   const onLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -11,7 +17,7 @@ export function Weather() {
   };
 
   const onSend = (event: React.MouseEvent) => {
-    console.log(event);
+    loadForecast(location);
   }
 
   return (
