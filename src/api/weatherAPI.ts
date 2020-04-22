@@ -23,8 +23,14 @@ interface Weather {
 }
 
 export async function getForecast(location: string) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&apikey=${process.env.REACT_APP_API_KEY}`
-  const { data } = await axios.get<Forecast>(url);
+  const url = `https://api.openweathermap.org/data/2.5/weather`;
+  const { data } = await axios.get<Forecast>(url, {
+    params: {
+      q: location,
+      appid: process.env.REACT_APP_API_KEY,
+      units: "imperial"
+    }
+  });
   console.log(data);
   return data;
 }

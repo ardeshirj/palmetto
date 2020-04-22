@@ -1,3 +1,25 @@
 .sendButton {
-  margin-left: 1rem;
+  margin-left: 10px;
+}
+
+.forecastContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.forecastCard {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.forecastIcon {
+  align-self: center;
+  width: 100px;
+  height: 100px;
+}
+
+.forecastList {
+  text-align: left;
 }
