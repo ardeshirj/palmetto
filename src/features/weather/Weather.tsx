@@ -10,14 +10,14 @@ interface Props {
   isLoading: boolean;
   error: string | null;
   forecast: Forecast | null;
-  loadForecast: (location: string) => void
+  onLoadForecast: (location: string) => void
 }
 
-export function Weather({
+export default function Weather({
   isLoading,
   error,
   forecast,
-  loadForecast
+  onLoadForecast
 }: Props) {
   const [locationState, setLocationState] = React.useState("");
 
@@ -26,7 +26,7 @@ export function Weather({
   };
 
   const onSend = (event: React.MouseEvent) => {
-    loadForecast(locationState);
+    onLoadForecast(locationState);
   }
 
   const getForecastImg = (icon: string) => {
@@ -43,7 +43,11 @@ export function Weather({
           value={locationState}
           onChange={onLocationChange} />
       </TextField>
-      <Button className={styles.sendButton} onClick={onSend} raised>
+      <Button
+        raised
+        data-testid='location-send-btn'
+        className={styles.sendButton}
+        onClick={onSend} >
           Send
       </Button>
       { isLoading ? <p>Loading...</p> : null}
@@ -52,8 +56,9 @@ export function Weather({
         forecast ? (
           <div className={styles.forecastContainer}>
             <Card className={styles.forecastCard}>
-              <h1>{forecast.name}</h1>
+              <h1 data-testid='forecast-name'>{forecast.name}</h1>
               <CardMedia
+                data-testid='forecast-icon'
                 square
                 imageUrl={getForecastImg(forecast?.weather[0].icon)}
                 className={styles.forecastIcon}>
@@ -61,36 +66,42 @@ export function Weather({
               <List twoLine>
                 <ListItem>
                   <ListItemText
+                    data-testid='feels-like'
                     className={styles.forecastList}
                     primaryText='Feels Like'
                     secondaryText={forecast.main.feels_like + '°F'} />
                 </ListItem>
                 <ListItem>
                   <ListItemText
+                    data-testid='humidity'
                     className={styles.forecastList}
                     primaryText='Humidity'
                     secondaryText={forecast.main.humidity + '%'} />
                 </ListItem>
                 <ListItem>
                   <ListItemText
+                    data-testid='pressure'
                     className={styles.forecastList}
                     primaryText='Pressure'
                     secondaryText={forecast.main.pressure + ' hPa'}/>
                 </ListItem>
                 <ListItem>
                   <ListItemText
+                    data-testid='temp'
                     className={styles.forecastList}
                     primaryText='Temperature'
                     secondaryText={forecast.main.temp + '°F'} />
                 </ListItem>
                 <ListItem>
                   <ListItemText
+                    data-testid='temp-min'
                     className={styles.forecastList}
                     primaryText='Temperature Min'
                     secondaryText={forecast.main.temp_min + '°F'} />
                 </ListItem>
                 <ListItem>
                   <ListItemText
+                    data-testid='temp-max'
                     className={styles.forecastList}
                     primaryText='Temperature Max'
                     secondaryText={forecast.main.temp_max + '°F'} />

@@ -7,7 +7,7 @@ import '@material/react-card/dist/card.min.css';
 import '@material/react-list/dist/list.min.css';
 
 import './App.css';
-import { Weather } from './features/weather/Weather';
+import Weather from './features/weather/Weather';
 import { loadForecast, fetchForecast } from './features/weather/weatherSlice';
 import { RootState } from './app/store';
 
@@ -18,7 +18,7 @@ function App() {
     (state: RootState) => state.weather
   );
 
-  const onLoadForecast = (location: string) => {
+  const loadForecastHandler = (location: string) => {
     dispatch(loadForecast(location));
     dispatch(fetchForecast(location));
   }
@@ -29,7 +29,7 @@ function App() {
         isLoading={isLoading}
         error={error}
         forecast={forecast}
-        loadForecast={onLoadForecast}></Weather>
+        onLoadForecast={loadForecastHandler}/>
     </div>
   );
 }
