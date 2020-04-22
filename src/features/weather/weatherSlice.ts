@@ -9,7 +9,7 @@ interface WeatherState {
   error: string | null;
 }
 
-const initialState: WeatherState = {
+export const initialState: WeatherState = {
   isLoading: false,
   location: null,
   forecast: null,
