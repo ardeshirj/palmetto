@@ -31,6 +31,5 @@ export async function getForecast(location: string) {
       units: "imperial"
     }
   });
-  console.log(data);
   return data;
 }
