@@ -7,11 +7,15 @@ import styles from './weather.module.css';
 import { Forecast } from '../../api/weatherAPI';
 
 interface Props {
+  isLoading: boolean;
+  error: string | null;
   forecast: Forecast | null;
   loadForecast: (location: string) => void
 }
 
 export function Weather({
+  isLoading,
+  error,
   forecast,
   loadForecast
 }: Props) {
@@ -31,7 +35,7 @@ export function Weather({
 
   return (
     <div>
-      <h1>Welcome to weather app!</h1>
+      <h1>Weather Time!</h1>
       <TextField
         label='Location'
         onTrailingIconSelect={() => setLocationState('')}
@@ -42,6 +46,8 @@ export function Weather({
       <Button className={styles.sendButton} onClick={onSend} raised>
           Send
       </Button>
+      { isLoading ? <p>Loading...</p> : null}
+      { error ? <p>{error}</p> : null}
       {
         forecast ? (
           <div className={styles.forecastContainer}>

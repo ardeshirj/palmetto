@@ -3,14 +3,14 @@ import { AppThunk, RootState } from '../../app/store';
 import { getForecast, Forecast } from '../../api/weatherAPI';
 
 interface WeatherState {
-  isLoadingForecast: boolean;
+  isLoading: boolean;
   location: string | null;
   forecast: Forecast | null;
   error: string | null;
 }
 
 const initialState: WeatherState = {
-  isLoadingForecast: false,
+  isLoading: false,
   location: null,
   forecast: null,
   error: null
@@ -21,16 +21,18 @@ export const weatherSlice = createSlice({
   initialState,
   reducers: {
     loadForecast: (state, app: PayloadAction<string>) => {
-      state.isLoadingForecast = true;
+      state.isLoading = true;
       state.location = app.payload;
       state.forecast = null;
+      state.error = null;
     },
     getForecastSuccess: (state, action: PayloadAction<Forecast>) => {
-      state.isLoadingForecast = false;
+      state.isLoading = false;
       state.forecast = action.payload;
+      state.error = null;
     },
     getForecastFailed: (state, action: PayloadAction<string>) => {
-      state.isLoadingForecast = false;
+      state.isLoading = false;
       state.error = action.payload
     }
   },

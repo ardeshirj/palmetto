@@ -14,7 +14,7 @@ import { RootState } from './app/store';
 function App() {
   const dispatch = useDispatch();
 
-  const { forecast } = useSelector(
+  const { forecast, isLoading, error } = useSelector(
     (state: RootState) => state.weather
   );
 
@@ -25,7 +25,11 @@ function App() {
 
   return (
     <div className="App">
-      <Weather forecast={forecast} loadForecast={onLoadForecast}></Weather>
+      <Weather
+        isLoading={isLoading}
+        error={error}
+        forecast={forecast}
+        loadForecast={onLoadForecast}></Weather>
     </div>
   );
 }
