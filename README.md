@@ -11,6 +11,7 @@ This is a simple React app that will take a city name to fetch current weather f
 ## Get Started
 To run this app, you first need an api key from `OpenWeatherAPI`. You can simply generate one on their website. Once you have your API key, you would need to add it to `.env` file in main directory under `REACT_APP_API_KEY` environment variable. Now you can run the app simply by using `yarn`:
 ```
+yarn install
 yarn start
 ```
 
