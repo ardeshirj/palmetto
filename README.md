@@ -15,7 +15,7 @@ yarn start
 ```
 
 ## Test
-The are some tests in `features/weather` directory, and you can run the tests using `yarn:
+The are some tests in `features/weather` directory, and you can run the tests using `yarn`:
 ```
 yarn test
 ```
