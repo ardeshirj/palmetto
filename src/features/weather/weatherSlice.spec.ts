@@ -1,3 +1,4 @@
+import { ThunkDispatch, AnyAction } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import createMockStore from 'redux-mock-store';
 import axios from 'axios';
@@ -9,7 +10,9 @@ import weather, {
   fetchForecast
 } from './weatherSlice';
 import { Forecast } from '../../api/weatherAPI';
-import { RootState, AppThunk } from '../../app/store';
+import { RootState } from '../../app/store';
+
+type DispatchExts = ThunkDispatch<RootState, undefined, AnyAction>
 
 jest.mock('axios');
 
@@ -49,7 +52,7 @@ describe('weather reducer', () => {
 
 describe('Thunk Actions', () => {
   const middleware = [thunk];
-  const mockStore = createMockStore<RootState, AppThunk>(middleware);
+  const mockStore = createMockStore<RootState, DispatchExts>(middleware);
   const store = mockStore();
   const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -57,8 +60,10 @@ describe('Thunk Actions', () => {
     const payload = { name: 'foo' } as Forecast;
     const responseData = { data: payload };
     mockedAxios.get.mockResolvedValue(responseData)
+
     await store.dispatch(fetchForecast("foo"));
     const actions = store.getActions();
+
     expect(actions[0]).toEqual(getForecastSuccess(payload));
   });
 });
