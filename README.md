@@ -28,5 +28,6 @@ yarn build
 ```
 
 ## Improvement
+- Add autocomplete for city name
 - Add CI/CD integration to build, test and deploy
 - Add logs service
